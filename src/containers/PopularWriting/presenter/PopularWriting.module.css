@@ -1,0 +1,136 @@
+.popular-writing {
+  background-color: #ffffff;
+  border-radius: 1.6rem;
+  padding: 2.4rem;
+  margin-top: 2.4rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.more-button {
+  color: #9694ff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.writing-list {
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.writing-item {
+  border: 1px solid rgba(150, 148, 255, 0.15);
+  border-radius: 1.6rem;
+  padding: 1.6rem;
+  display: flex;
+  gap: 1.6rem;
+}
+
+.writing-info {
+  width: 100%;
+}
+
+.user-image {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+  border: 2px solid rgba(150, 148, 255, 0.2);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.user-name {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.user-personalcolor {
+  font-size: 1.2rem;
+  font-weight: 400;
+  background-color: rgba(195, 194, 255, 0.2);
+  border-radius: 1.6rem;
+  padding: 0.4rem 1.2rem;
+  color: #9694ff;
+}
+
+.time-posted {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #6b6b8a;
+}
+
+.writing-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.writing-image {
+  margin-top: 2rem;
+  height: 12rem;
+}
+
+.writing-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.heart-icon {
+  color: #6b6b8a;
+}
+
+.like-count {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #6b6b8a;
+}
+
+.comments {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.comment-icon {
+  color: #6b6b8a;
+}
+
+.comment-count {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #6b6b8a;
+}

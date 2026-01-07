@@ -1,0 +1,129 @@
+.today-pick {
+  background-color: #fff;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.sub-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.button {
+  background-color: #e8e9f3;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #9694ff;
+}
+
+.pick-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pick-item {
+  padding: 2rem;
+  width: 24.5rem;
+  height: 32.9rem;
+  background: linear-gradient(180deg, #ffffff 0%, #e8e9f3 100%);
+  border-radius: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pick-item-image {
+  width: 21rem;
+  height: 21rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
+}
+
+.pick-item-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pick-item-brand {
+  color: #6b6b8a;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.pick-item-personalcolor {
+  font-size: 1.2rem;
+  font-weight: 400;
+  background-color: rgba(195, 194, 255, 0.2);
+  border-radius: 1.2rem;
+  padding: 0.5rem 1rem;
+  color: #9694ff;
+}
+
+.pick-item-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.pick-item-name {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.pick {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+}
+
+.heart {
+  color: #ff6b6b;
+  fill: #ff6b6b;
+}
+
+.pick-count {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ff6b6b;
+}

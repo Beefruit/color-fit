@@ -1,0 +1,45 @@
+.profile {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 1.6rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.profile-image {
+  width: 7.2rem;
+  height: 7.2rem;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.profile-name {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.profile-personalcolor {
+  font-size: 1.4rem;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 2rem;
+  padding: 0.9rem 1.6rem;
+
+  /* [D theme] 추후에 테마 컬러 적용 */
+  color: #9694ff;
+}
