@@ -148,12 +148,37 @@ body {
 
 :root {
   --color-spring: #ffb4d9;
+
+  --primary-color: #9694ff;
+  --secondary-color: #7d7bf5;
+
   --color-summer: #a8c5e5;
   --color-autumn: #ffd366;
   --color-winter: #9694ff;
 }
 
+[data-theme="spring"] {
+  --primary-color: #ffb4d9;
+  --secondary-color: #ff9ccf;
+}
+
+[data-theme="summer"] {
+  --primary-color: #a8c5e5;
+  --secondary-color: #7db9e8;
+}
+
+[data-theme="autumn"] {
+  --primary-color: #ffd366;
+  --secondary-color: #ffb54c;
+}
+
+[data-theme="winter"] {
+  --primary-color: #9694ff;
+  --secondary-color: #7d7bf5;
+}
+
 .main {
+  max-width: 100vw;
   padding: 11rem 2.4rem 2.4rem 2.4rem;
   display: flex;
   gap: 2.4rem;

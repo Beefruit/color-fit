@@ -1,5 +1,13 @@
 .main-banner {
-  height: 23.2rem;
-  background-color: yellowgreen;
+  height: 38rem;
   border-radius: 2.4rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-banner img {
+  width: 100%;
+  object-fit: contain;
 }

@@ -39,7 +39,5 @@
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 2rem;
   padding: 0.9rem 1.6rem;
-
-  /* [D theme] 추후에 테마 컬러 적용 */
-  color: #9694ff;
+  color: var(--primary-color);
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import { type FC } from "react";
 import TodaypickPresenter from "./presenter/Todaypick.presenter";
 

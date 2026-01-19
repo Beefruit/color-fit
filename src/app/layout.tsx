@@ -3,6 +3,7 @@ import { type FC } from "react";
 import "./globals.css";
 import HeaderContainer from "@/containers/Header/Header.container";
 import SidebarContainer from "@/containers/Sidebar/Sidebar.container";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,13 +14,20 @@ const RootLayout: FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body>
-        <HeaderContainer />
-        <main className="main">
-          <SidebarContainer />
-          {children}
-        </main>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="spring"
+          enableSystem={false}
+          themes={["spring", "summer", "autumn", "winter"]}
+        >
+          <HeaderContainer />
+          <main className="main">
+            <SidebarContainer />
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

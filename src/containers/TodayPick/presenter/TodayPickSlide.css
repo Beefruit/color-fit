@@ -1,0 +1,4 @@
+.pick-prev.swiper-button-disabled,
+.pick-next.swiper-button-disabled {
+  opacity: 0.3;
+}

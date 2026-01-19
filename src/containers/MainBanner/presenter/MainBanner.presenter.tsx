@@ -6,7 +6,16 @@ import Image from "next/image";
 const cx = classNames.bind(styles);
 
 const MainBannerPresenter: FC = () => {
-  return <div className={cx("main-banner")}></div>;
+  return (
+    <div className={cx("main-banner")}>
+      <Image
+        src="/images/banner.png"
+        alt="main banner"
+        width={1920}
+        height={640}
+      />
+    </div>
+  );
 };
 
 export default MainBannerPresenter;

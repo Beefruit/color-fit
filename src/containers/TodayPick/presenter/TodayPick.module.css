@@ -38,7 +38,7 @@
 }
 
 .button {
-  background-color: #e8e9f3;
+  background-color: #f1f1f6;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -46,19 +46,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #9694ff;
-}
-
-.pick-list {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  color: var(--primary-color);
 }
 
 .pick-item {
   padding: 2rem;
-  width: 24.5rem;
-  height: 32.9rem;
+  width: 24.5rem !important;
+  height: 32.9rem !important;
   background: linear-gradient(180deg, #ffffff 0%, #e8e9f3 100%);
   border-radius: 1.6rem;
   display: flex;
@@ -80,6 +74,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .pick-item-brand {
