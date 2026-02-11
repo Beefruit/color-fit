@@ -1,0 +1,33 @@
+.login-layout {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-layout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 67.3rem;
+  height: 45.6rem;
+  background-color: rgba(150, 148, 255, 0.3);
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(120px);
+}
+
+.login-layout::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 67.3rem;
+  height: 45.6rem;
+  background-color: rgba(150, 148, 255, 0.3);
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(120px);
+}

@@ -6,6 +6,7 @@ import classNames from "classnames/bind";
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -13,7 +14,19 @@ import "./TodayPickSlide.css";
 
 const cx = classNames.bind(styles);
 
-const TodaypickPresenter: FC = () => {
+interface ITodaypickPresenterProps {
+  todayPicks?: {
+    id: number;
+    brand: string;
+    name: string;
+    personal_color: string;
+    likes: number;
+    image_url: string;
+    category: string;
+  }[];
+}
+
+const TodaypickPresenter: FC<ITodaypickPresenterProps> = ({ todayPicks }) => {
   return (
     <div className={cx("today-pick")}>
       <div className={cx("header")}>
@@ -38,104 +51,32 @@ const TodaypickPresenter: FC = () => {
           spaceBetween={10}
           className="pick-list"
         >
-          <SwiperSlide className={cx("pick-item")}>
-            <div className={cx("pick-item-image")}></div>
-            <div className={cx("pick-item-info")}>
-              <p className={cx("pick-item-brand")}>김필러 컬러리츠</p>
-              <p className={cx("pick-item-personalcolor")}>겨울 쿨</p>
-            </div>
-            <div className={cx("pick-item-wrapper")}>
-              <h2 className={cx("pick-item-name")}>윈터 쿨톤 립스틱</h2>
-              <div className={cx("pick")}>
-                <Heart size={15} className={cx("heart")} />
-                <p className={cx("pick-count")}>+ 128</p>
+          {todayPicks?.map((pick) => (
+            <SwiperSlide key={pick.id} className={cx("pick-item")}>
+              <div>
+                <Image
+                  src={pick.image_url}
+                  alt={pick.name}
+                  width={210}
+                  height={210}
+                  className={cx("pick-item-image")}
+                />
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className={cx("pick-item")}>
-            <div className={cx("pick-item-image")}></div>
-            <div className={cx("pick-item-info")}>
-              <p className={cx("pick-item-brand")}>김필러 컬러리츠</p>
-              <p className={cx("pick-item-personalcolor")}>겨울 쿨</p>
-            </div>
-            <div className={cx("pick-item-wrapper")}>
-              <h2 className={cx("pick-item-name")}>윈터 쿨톤 립스틱</h2>
-              <div className={cx("pick")}>
-                <Heart size={15} className={cx("heart")} />
-                <p className={cx("pick-count")}>+ 128</p>
+              <div className={cx("pick-item-info")}>
+                <p className={cx("pick-item-brand")}>{pick.brand}</p>
+                <p className={cx("pick-item-personalcolor")}>
+                  {pick.personal_color}
+                </p>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className={cx("pick-item")}>
-            <div className={cx("pick-item-image")}></div>
-            <div className={cx("pick-item-info")}>
-              <p className={cx("pick-item-brand")}>김필러 컬러리츠</p>
-              <p className={cx("pick-item-personalcolor")}>겨울 쿨</p>
-            </div>
-            <div className={cx("pick-item-wrapper")}>
-              <h2 className={cx("pick-item-name")}>윈터 쿨톤 립스틱</h2>
-              <div className={cx("pick")}>
-                <Heart size={15} className={cx("heart")} />
-                <p className={cx("pick-count")}>+ 128</p>
+              <div className={cx("pick-item-wrapper")}>
+                <h2 className={cx("pick-item-name")}>{pick.name}</h2>
+                <div className={cx("pick")}>
+                  <Heart size={15} className={cx("heart")} />
+                  <p className={cx("pick-count")}>+ {pick.likes}</p>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className={cx("pick-item")}>
-            <div className={cx("pick-item-image")}></div>
-            <div className={cx("pick-item-info")}>
-              <p className={cx("pick-item-brand")}>김필러 컬러리츠</p>
-              <p className={cx("pick-item-personalcolor")}>겨울 쿨</p>
-            </div>
-            <div className={cx("pick-item-wrapper")}>
-              <h2 className={cx("pick-item-name")}>윈터 쿨톤 립스틱</h2>
-              <div className={cx("pick")}>
-                <Heart size={15} className={cx("heart")} />
-                <p className={cx("pick-count")}>+ 128</p>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className={cx("pick-item")}>
-            <div className={cx("pick-item-image")}></div>
-            <div className={cx("pick-item-info")}>
-              <p className={cx("pick-item-brand")}>김필러 컬러리츠</p>
-              <p className={cx("pick-item-personalcolor")}>겨울 쿨</p>
-            </div>
-            <div className={cx("pick-item-wrapper")}>
-              <h2 className={cx("pick-item-name")}>윈터 쿨톤 립스틱</h2>
-              <div className={cx("pick")}>
-                <Heart size={15} className={cx("heart")} />
-                <p className={cx("pick-count")}>+ 128</p>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className={cx("pick-item")}>
-            <div className={cx("pick-item-image")}></div>
-            <div className={cx("pick-item-info")}>
-              <p className={cx("pick-item-brand")}>김필러 컬러리츠</p>
-              <p className={cx("pick-item-personalcolor")}>겨울 쿨</p>
-            </div>
-            <div className={cx("pick-item-wrapper")}>
-              <h2 className={cx("pick-item-name")}>윈터 쿨톤 립스틱</h2>
-              <div className={cx("pick")}>
-                <Heart size={15} className={cx("heart")} />
-                <p className={cx("pick-count")}>+ 128</p>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className={cx("pick-item")}>
-            <div className={cx("pick-item-image")}></div>
-            <div className={cx("pick-item-info")}>
-              <p className={cx("pick-item-brand")}>김필러 컬러리츠</p>
-              <p className={cx("pick-item-personalcolor")}>겨울 쿨</p>
-            </div>
-            <div className={cx("pick-item-wrapper")}>
-              <h2 className={cx("pick-item-name")}>윈터 쿨톤 립스틱</h2>
-              <div className={cx("pick")}>
-                <Heart size={15} className={cx("heart")} />
-                <p className={cx("pick-count")}>+ 128</p>
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
