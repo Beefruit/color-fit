@@ -1,3 +1,5 @@
+"use client";
+
 import { type FC } from "react";
 import styles from "./LoginForm.module.css";
 import classNames from "classnames/bind";
@@ -7,7 +9,13 @@ import { Mail, Lock, Eye } from "lucide-react";
 
 const cx = classNames.bind(styles);
 
-const LoginFormPresenter: FC = () => {
+interface ILoginFormPresenterProps {
+  onClickGoogleOauth: () => void;
+}
+
+const LoginFormPresenter: FC<ILoginFormPresenterProps> = ({
+  onClickGoogleOauth,
+}) => {
   return (
     <div className={cx("login-form-container")}>
       <h2 className={cx("form-title")}>환영합니다!</h2>
@@ -48,7 +56,7 @@ const LoginFormPresenter: FC = () => {
         <span className={cx("text")}>또는</span>
         <span className={cx("line")}></span>
       </div>
-      <button className={cx("oauth-button")}>
+      <button className={cx("oauth-button")} onClick={onClickGoogleOauth}>
         <span className={cx("oauth-content")}>
           <Image
             src="/images/google-icon.svg"
