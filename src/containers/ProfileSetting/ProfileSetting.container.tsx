@@ -6,23 +6,27 @@ import ProfileSettingPresenter from "./presenter/ProfileSetting.presenter";
 
 const ProfileSettingContainer: FC = () => {
   const {
-    selectedTone,
     onSelectTone,
     previewUrl,
     onChangeFile,
     onChangeNickname,
     nickname,
     personalColorList,
+    onSubmitProfileSetting,
+    errorMessage,
+    isSubmitting,
   } = useProfileSetting();
   return (
     <ProfileSettingPresenter
-      selectedTone={selectedTone}
       onSelectTone={onSelectTone}
       previewUrl={previewUrl}
       onChangeFile={onChangeFile}
       onChangeNickname={onChangeNickname}
       nickname={nickname}
       personalColorList={personalColorList}
+      onSubmitProfileSetting={onSubmitProfileSetting}
+      errorMessage={errorMessage}
+      isSubmitting={isSubmitting}
     />
   );
 };

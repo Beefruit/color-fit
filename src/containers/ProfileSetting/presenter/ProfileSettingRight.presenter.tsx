@@ -8,7 +8,6 @@ import { UserRound, Save } from "lucide-react";
 const cx = classNames.bind(styles);
 
 interface IProfileSettingPresenterProps {
-  selectedTone: string;
   onSelectTone: (tone: string) => void;
   onChangeNickname: (e: React.ChangeEvent<HTMLInputElement>) => void;
   nickname: string;
@@ -18,14 +17,19 @@ interface IProfileSettingPresenterProps {
     color: string;
     isActive: boolean;
   }[];
+  onSubmitProfileSetting: () => void;
+  errorMessage: string;
+  isSubmitting: boolean;
 }
 
 const ProfileSettingRightPresenter: FC<IProfileSettingPresenterProps> = ({
-  selectedTone,
   onSelectTone,
   onChangeNickname,
   nickname,
   personalColorList,
+  onSubmitProfileSetting,
+  errorMessage,
+  isSubmitting,
 }) => {
   return (
     <div className={cx("profile-right-container")}>
@@ -43,6 +47,7 @@ const ProfileSettingRightPresenter: FC<IProfileSettingPresenterProps> = ({
         />
         <p className={cx("nickname-count")}>{nickname.length}/15</p>
       </div>
+      {errorMessage && <p className={cx("error-message")}>{errorMessage}</p>}
       <p className={cx("description")}>커뮤니티 활동 시 보여질 닉네임입니다.</p>
       <span className={cx("divider")} />
       <div className={cx("personal-color-chart")}>
@@ -78,9 +83,14 @@ const ProfileSettingRightPresenter: FC<IProfileSettingPresenterProps> = ({
         </p>
       </div>
       <div className={cx("save-button-container")}>
-        <button className={cx("save-button")}>
+        <button
+          type="button"
+          disabled={isSubmitting}
+          className={cx("save-button", { disabled: isSubmitting })}
+          onClick={onSubmitProfileSetting}
+        >
           <Save size={16} className={cx("save-icon")} />
-          저장하기
+          {isSubmitting ? "저장 중..." : "저장하기"}
         </button>
       </div>
     </div>

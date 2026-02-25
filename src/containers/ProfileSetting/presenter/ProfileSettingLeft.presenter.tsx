@@ -20,6 +20,7 @@ const ProfileSettingLeftPresenter: FC<IProfileSettingLeftPresenterProps> = ({
         <div className={cx("input-field")}>
           <input
             type="file"
+            accept="image/*"
             id="profile-image"
             className={cx("file-input")}
             onChange={onChangeFile}

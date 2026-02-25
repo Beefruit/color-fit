@@ -152,6 +152,13 @@
   transform: translateY(-50%);
 }
 
+.error-message {
+  font-size: 1.2rem;
+  color: #ff6b6b;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
 .description {
   font-size: 1.4rem;
   color: #6b6b8a;
@@ -261,6 +268,11 @@
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+}
+
+.save-button.disabled {
+  background-color: #c1bfff;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 768px) {

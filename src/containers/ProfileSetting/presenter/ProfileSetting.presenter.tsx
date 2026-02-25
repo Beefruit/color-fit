@@ -9,7 +9,6 @@ import ProfileSettingRightPresenter from "./ProfileSettingRight.presenter";
 const cx = classNames.bind(styles);
 
 interface IProfileSettingPresenterProps {
-  selectedTone: string;
   onSelectTone: (tone: string) => void;
   previewUrl: string;
   onChangeFile: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,16 +20,21 @@ interface IProfileSettingPresenterProps {
     color: string;
     isActive: boolean;
   }[];
+  onSubmitProfileSetting: () => void;
+  errorMessage: string;
+  isSubmitting: boolean;
 }
 
 const ProfileSettingPresenter: FC<IProfileSettingPresenterProps> = ({
-  selectedTone,
   onSelectTone,
   previewUrl,
   onChangeFile,
   onChangeNickname,
   nickname,
   personalColorList,
+  onSubmitProfileSetting,
+  errorMessage,
+  isSubmitting,
 }) => {
   return (
     <div className={cx("profile-setting-container")}>
@@ -42,11 +46,13 @@ const ProfileSettingPresenter: FC<IProfileSettingPresenterProps> = ({
       </div>
       <div className={cx("right-container")}>
         <ProfileSettingRightPresenter
-          selectedTone={selectedTone}
           onSelectTone={onSelectTone}
           onChangeNickname={onChangeNickname}
           nickname={nickname}
           personalColorList={personalColorList}
+          onSubmitProfileSetting={onSubmitProfileSetting}
+          errorMessage={errorMessage}
+          isSubmitting={isSubmitting}
         />
       </div>
     </div>
