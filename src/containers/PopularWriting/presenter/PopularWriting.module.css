@@ -41,6 +41,14 @@
   gap: 1.6rem;
 }
 
+.writing-link {
+  display: flex;
+  gap: 1.6rem;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .writing-info {
   width: 100%;
 }

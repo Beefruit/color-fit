@@ -2,7 +2,7 @@ import { type FC } from "react";
 import styles from "./PopularWriting.module.css";
 import classNames from "classnames/bind";
 import { ArrowRight, Heart, MessageCircle } from "lucide-react";
-import Image from "next/image";
+import Link from "next/link";
 
 const cx = classNames.bind(styles);
 
@@ -32,17 +32,21 @@ const PopularWritingPresenter: FC<PopularWritingPresenterProps> = (props) => {
       <ul className={cx("writing-list")}>
         {props.popularWritings?.map((writing) => (
           <li key={writing.id} className={cx("writing-item")}>
-            <div className={cx("user-image")}></div>
-            <div className={cx("writing-info")}>
-              <div className={cx("user-info")}>
-                <div className={cx("user")}>
-                  <p className={cx("user-name")}>{writing.user_id}</p>
-                  <p className={cx("user-personalcolor")}>겨울 쿨 브라이트</p>
+            <Link
+              href={`/popular-writing/${writing.id}`}
+              className={cx("writing-link")}
+            >
+              <div className={cx("user-image")}></div>
+              <div className={cx("writing-info")}>
+                <div className={cx("user-info")}>
+                  <div className={cx("user")}>
+                    <p className={cx("user-name")}>{writing.user_id}</p>
+                    <p className={cx("user-personalcolor")}>겨울 쿨 브라이트</p>
+                  </div>
+                  <p className={cx("time-posted")}>{writing.created_at}</p>
                 </div>
-                <p className={cx("time-posted")}>{writing.created_at}</p>
-              </div>
-              <h2 className={cx("writing-title")}>{writing.title}</h2>
-              {/* <div>
+                <h2 className={cx("writing-title")}>{writing.title}</h2>
+                {/* <div>
               <Image
                 src={writing.image_urls}
                 alt={writing.title}
@@ -51,19 +55,20 @@ const PopularWritingPresenter: FC<PopularWritingPresenterProps> = (props) => {
                 className={cx("writing-image")}
               />
             </div> */}
-              <div className={cx("writing-footer")}>
-                <div className={cx("likes")}>
-                  <Heart size={15} className={cx("heart-icon")} />
-                  <p className={cx("like-count")}>{writing.like_count}</p>
-                </div>
-                <div className={cx("comments")}>
-                  <MessageCircle size={15} className={cx("comment-icon")} />
-                  <p className={cx("comment-count")}>
-                    댓글 {writing.comment_count}
-                  </p>
+                <div className={cx("writing-footer")}>
+                  <div className={cx("likes")}>
+                    <Heart size={15} className={cx("heart-icon")} />
+                    <p className={cx("like-count")}>{writing.like_count}</p>
+                  </div>
+                  <div className={cx("comments")}>
+                    <MessageCircle size={15} className={cx("comment-icon")} />
+                    <p className={cx("comment-count")}>
+                      댓글 {writing.comment_count}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </li>
         ))}
       </ul>

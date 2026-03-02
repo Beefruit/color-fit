@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useMounted } from "@/hooks/useMounted";
 
-export const useSidebar = () => {
+export const useSideBarMenu = () => {
   const { theme, setTheme } = useTheme();
   const mounted = useMounted();
 

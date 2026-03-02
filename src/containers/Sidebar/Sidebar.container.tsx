@@ -1,15 +1,13 @@
-"use client";
-
 import { type FC } from "react";
 import SidebarPresenter from "./presenter/Sidebar.presenter";
-import { useSidebar } from "./hook/useSidebar";
+import SideBarMenuContainer from "../SideBarMenu/SideBarMenu.container";
 
 const SidebarContainer: FC = () => {
-  const { mounted, theme, onClickThemeBtn } = useSidebar();
-
-  if (!mounted) return null;
-
-  return <SidebarPresenter theme={theme} onClickThemeBtn={onClickThemeBtn} />;
+  return (
+    <SidebarPresenter>
+      <SideBarMenuContainer />
+    </SidebarPresenter>
+  );
 };
 
 export default SidebarContainer;
