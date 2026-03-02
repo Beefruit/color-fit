@@ -9,12 +9,16 @@ const cx = classNames.bind(styles);
 
 interface ISidebarPresenterProps {
   children?: React.ReactNode;
+  isLogin: boolean;
 }
 
-const SidebarPresenter: FC<ISidebarPresenterProps> = ({ children }) => {
+const SidebarPresenter: FC<ISidebarPresenterProps> = ({
+  children,
+  isLogin,
+}) => {
   return (
     <div className={cx("sidebar")}>
-      <ProfilePresenter />
+      <ProfilePresenter isLogin={isLogin} />
       {children}
     </div>
   );
