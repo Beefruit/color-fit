@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { type FC } from "react";
 import "../globals.css";
 import HeaderContainer from "@/containers/Header/Header.container";
-import SidebarContainer from "@/containers/Sidebar/Sidebar.container";
+import SidebarContainer from "@/containers/SideBar/SideBar.container";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {

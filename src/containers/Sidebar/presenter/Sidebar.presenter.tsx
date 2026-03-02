@@ -8,13 +8,14 @@ import ProfilePresenter from "./Profile.presenter";
 const cx = classNames.bind(styles);
 
 interface ISidebarPresenterProps {
+  isLogin: boolean;
   children?: React.ReactNode;
 }
 
 const SidebarPresenter: FC<ISidebarPresenterProps> = ({ children }) => {
   return (
     <div className={cx("sidebar")}>
-      <ProfilePresenter />
+      <ProfilePresenter isLogin={isLogin} />
       {children}
     </div>
   );
