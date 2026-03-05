@@ -7,7 +7,7 @@ export const getUserProfile = async () => {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    throw new Error("Unauthorized");
+    return null;
   }
 
   const { data, error } = await supabase
@@ -21,5 +21,5 @@ export const getUserProfile = async () => {
     throw new Error("Failed to fetch user profile");
   }
 
-  return { profile: data };
+  return data;
 };

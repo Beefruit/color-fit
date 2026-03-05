@@ -10,15 +10,25 @@ const cx = classNames.bind(styles);
 interface ISidebarPresenterProps {
   children?: React.ReactNode;
   isLogin: boolean;
+  userData?: {
+    nickname: string;
+    avatar_url: string;
+    personal_color_tag: {
+      id: string;
+      name: string;
+      color: string;
+    };
+  };
 }
 
 const SidebarPresenter: FC<ISidebarPresenterProps> = ({
   children,
   isLogin,
+  userData,
 }) => {
   return (
     <div className={cx("sidebar")}>
-      <ProfilePresenter isLogin={isLogin} />
+      <ProfilePresenter isLogin={isLogin} userData={userData} />
       {children}
     </div>
   );

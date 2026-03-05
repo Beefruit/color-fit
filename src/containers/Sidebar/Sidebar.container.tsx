@@ -2,17 +2,16 @@ import { type FC } from "react";
 import SidebarPresenter from "./presenter/Sidebar.presenter";
 import SideBarMenuContainer from "../SideBarMenu/SideBarMenu.container";
 import { getUserProfile } from "./api/userProfile.api";
-
 const SidebarContainer: FC = async () => {
   let isLogin = false;
+  let userData = null;
 
   try {
-    const data = await getUserProfile();
+    const user = await getUserProfile();
 
-    if (!data) {
-      isLogin = false;
-    } else {
+    if (user) {
       isLogin = true;
+      userData = user.profile;
     }
   } catch (error) {
     isLogin = false;
@@ -20,7 +19,7 @@ const SidebarContainer: FC = async () => {
   }
 
   return (
-    <SidebarPresenter isLogin={isLogin}>
+    <SidebarPresenter userData={userData} isLogin={isLogin}>
       <SideBarMenuContainer />
     </SidebarPresenter>
   );
