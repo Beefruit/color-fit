@@ -1,0 +1,166 @@
+.list-container {
+  width: 100%;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 2rem;
+  padding: 2.4rem;
+}
+
+.list-header-icon {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list-title {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.link-button {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(180deg, #9694ff, #c3c2ff);
+  padding: 0.8rem 1.6rem;
+  border-radius: 2rem;
+  text-decoration: none;
+}
+
+.list-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 2rem;
+  margin-top: 2.4rem;
+  padding: 2.4rem;
+  gap: 1.6rem;
+}
+
+.list-item {
+  border: 1px solid rgba(150, 148, 255, 0.15);
+  border-radius: 2rem;
+}
+
+.list-item-header {
+  display: flex;
+}
+
+.list-item-lank {
+  padding: 2rem;
+}
+
+.list-item-lank-number {
+  color: #ff6b6b;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.list-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: gray;
+}
+
+.user-info {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.user-name {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.personal-color {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #9694ff;
+  border-radius: 1.6rem;
+  padding: 0.4rem 0.6rem;
+  background-color: rgba(195, 194, 255, 0.2);
+}
+
+.time-posted {
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 2rem;
+  color: #6b6b8a;
+}
+
+.list-item-content {
+  padding: 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.list-item-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.list-item-description {
+  color: #6b6b8a;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.list-item-footer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.list-item-likes {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.like-icon {
+  color: #ff6b6b;
+}
+
+.like-count {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #ff6b6b;
+}
+
+.list-item-comments {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.comment-icon {
+  color: #6b6b8a;
+}
+
+.comment-count {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #6b6b8a;
+}

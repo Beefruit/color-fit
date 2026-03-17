@@ -25,7 +25,9 @@ const PopularWritingPresenter: FC<PopularWritingPresenterProps> = (props) => {
       <div className={cx("header")}>
         <h2 className={cx("title")}>실시간 인기 글</h2>
         <div className={cx("more-button")}>
-          <p className={cx("button")}>전체보기</p>
+          <Link href="/popular-writing/list" className={cx("button")}>
+            전체보기
+          </Link>
           <ArrowRight size={15} className={cx("arrow-icon")} />
         </div>
       </div>

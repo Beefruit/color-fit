@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import HeaderPresenter from "./presenter/Header.presenter";
-import { getUserProfile } from "./api/header.api";
+import { getUserProfile } from "@/apis/user.server";
 
 const HeaderContainer: FC = async () => {
   const userProfile = await getUserProfile();

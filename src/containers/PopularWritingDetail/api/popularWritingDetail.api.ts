@@ -1,6 +1,6 @@
-export const getPopularWritings = async () => {
+export const getPopularWritingDetail = async (id: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/posts`, {
+    const response = await fetch(`${process.env.API_URL}/post/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -10,7 +10,7 @@ export const getPopularWritings = async () => {
     const data = await response.json();
     return data;
   } catch {
-    console.error("Failed to fetch popular writings");
+    console.error("Failed to fetch popular writing detail");
 
     return null;
   }
