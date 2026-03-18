@@ -36,7 +36,7 @@ const HeaderPresenter: FC<IHeaderPresenterProps> = ({
                   <div className={cx("profile-image")}>
                     {avatar_url ? (
                       <Image
-                        src={`https://lsapyxmfpbrgttavcxag.supabase.co/storage/v1/object/public/avatars/${avatar_url}`}
+                        src={`${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/avatars/${avatar_url}`}
                         alt={`${nickname}의 프로필 이미지`}
                         width={40}
                         height={40}

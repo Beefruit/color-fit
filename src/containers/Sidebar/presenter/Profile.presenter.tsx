@@ -31,7 +31,7 @@ const ProfilePresenter: FC<IProfilePresenterProps> = ({
             <div className={cx("profile-image")}>
               {userData?.avatar_url && (
                 <Image
-                  src={`https://lsapyxmfpbrgttavcxag.supabase.co/storage/v1/object/public/avatars/${userData.avatar_url}`}
+                  src={`${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/avatars/${userData.avatar_url}`}
                   alt={`${userData.nickname}의 프로필 이미지`}
                   width={80}
                   height={80}

@@ -4,6 +4,7 @@ import "../globals.css";
 import HeaderContainer from "@/containers/Header/Header.container";
 import SidebarContainer from "@/containers/Sidebar/Sidebar.container";
 import { ThemeProvider } from "next-themes";
+import UserProvider from "@/providers/User.providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,11 +21,13 @@ const MainLayout: FC<{
       enableSystem={false}
       themes={["spring", "summer", "autumn", "winter"]}
     >
-      <HeaderContainer />
-      <main className="main">
-        <SidebarContainer />
-        {children}
-      </main>
+      <UserProvider>
+        <HeaderContainer />
+        <main className="main">
+          <SidebarContainer />
+          {children}
+        </main>
+      </UserProvider>
     </ThemeProvider>
   );
 };

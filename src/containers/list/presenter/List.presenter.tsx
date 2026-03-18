@@ -14,7 +14,7 @@ const ListPresenter: FC = () => {
           <ArrowLeft size={20} className={cx("arrow-icon")} />
           <h1 className={cx("list-title")}>실시간 인기글</h1>
         </div>
-        <Link href="/community" className={cx("link-button")}>
+        <Link href="/community/register" className={cx("link-button")}>
           글쓰기
         </Link>
       </div>

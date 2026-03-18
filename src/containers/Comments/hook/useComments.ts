@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { postComment, getComments } from "../api/comments.api";
+import { useUserStore } from "@/store/user.store";
 
 export const useComments = (id: string) => {
   const [content, setContent] = useState("");
   const [comments, setComments] = useState<any[]>([]);
+  const { userProfile } = useUserStore();
 
   const onSubmitComment = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,5 +34,5 @@ export const useComments = (id: string) => {
     })();
   }, [id]);
 
-  return { onSubmitComment, onChangeComment, content, comments };
+  return { onSubmitComment, onChangeComment, content, comments, userProfile };
 };

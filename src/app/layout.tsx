@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { type FC } from "react";
 import "./globals.css";
+import AlertModalContainer from "@/containers/Modals/AlertModal/AlertModal.container";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,7 +13,10 @@ const RootLayout: FC<{
 }> = ({ children }) => {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AlertModalContainer />
+      </body>
     </html>
   );
 };

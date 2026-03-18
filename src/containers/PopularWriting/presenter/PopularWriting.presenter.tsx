@@ -3,6 +3,8 @@ import styles from "./PopularWriting.module.css";
 import classNames from "classnames/bind";
 import { ArrowRight, Heart, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import moment from "moment";
 
 const cx = classNames.bind(styles);
 
@@ -10,6 +12,8 @@ interface PopularWritingPresenterProps {
   popularWritings?: {
     id: number;
     user_id: string;
+    nickname: string;
+    avatar_url: string;
     title: string;
     content: string;
     image_urls: string[];
@@ -38,14 +42,28 @@ const PopularWritingPresenter: FC<PopularWritingPresenterProps> = (props) => {
               href={`/popular-writing/${writing.id}`}
               className={cx("writing-link")}
             >
-              <div className={cx("user-image")}></div>
+              <div className={cx("user-image")}>
+                {writing.avatar_url && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/avatars/${writing.avatar_url}`}
+                    alt={writing.nickname}
+                    width={44}
+                    height={44}
+                    className={cx("profile-image")}
+                  />
+                )}
+              </div>
               <div className={cx("writing-info")}>
                 <div className={cx("user-info")}>
                   <div className={cx("user")}>
-                    <p className={cx("user-name")}>{writing.user_id}</p>
+                    <p className={cx("user-name")}>
+                      {writing.nickname || "익명"}
+                    </p>
                     <p className={cx("user-personalcolor")}>겨울 쿨 브라이트</p>
                   </div>
-                  <p className={cx("time-posted")}>{writing.created_at}</p>
+                  <p className={cx("time-posted")}>
+                    {moment(writing.created_at).format("YYYY.MM.DD")}
+                  </p>
                 </div>
                 <h2 className={cx("writing-title")}>{writing.title}</h2>
                 {/* <div>

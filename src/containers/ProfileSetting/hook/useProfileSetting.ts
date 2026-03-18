@@ -50,12 +50,6 @@ export const useProfileSetting = () => {
       isActive: false,
     },
     {
-      name: "겨울 페일",
-      id: "winter-pale",
-      color: "#efd9f0",
-      isActive: false,
-    },
-    {
       name: "겨울 브라이트",
       id: "winter-bright",
       color: "#CB1FCF",

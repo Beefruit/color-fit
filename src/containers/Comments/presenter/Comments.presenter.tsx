@@ -19,6 +19,10 @@ interface ICommentsPresenterProps {
     nickname: string;
     avatar_url: string;
   }[];
+  userProfile: {
+    nickname: string;
+    avatar_url: string;
+  } | null;
 }
 
 const CommentsPresenter: FC<ICommentsPresenterProps> = ({
@@ -26,6 +30,7 @@ const CommentsPresenter: FC<ICommentsPresenterProps> = ({
   onChangeComment,
   content,
   comments,
+  userProfile,
 }) => {
   return (
     <div className={cx("comments-section")}>
@@ -35,12 +40,14 @@ const CommentsPresenter: FC<ICommentsPresenterProps> = ({
       </div>
       <div className={cx("comments-user")}>
         <div className={cx("comments-user-image")}>
-          {/* <Image
-            src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/avatars/${comment.avatar_url}`}
-            alt={comment.nickname}
-            width={44}
-            height={44}
-          /> */}
+          {userProfile && (
+            <Image
+              src={`${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/avatars/${userProfile.avatar_url}`}
+              alt={userProfile.nickname}
+              width={44}
+              height={44}
+            />
+          )}
         </div>
         <div className={cx("comments-content")}>
           <form className={cx("comments-form")} onSubmit={onSubmitComment}>
@@ -61,7 +68,7 @@ const CommentsPresenter: FC<ICommentsPresenterProps> = ({
           <div key={comment.id} className={cx("comment")}>
             <div className={cx("comment-user-image")}>
               <Image
-                src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/avatars/${comment.avatar_url}`}
+                src={`${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/avatars/${comment.avatar_url}`}
                 alt={comment.nickname}
                 width={44}
                 height={44}
