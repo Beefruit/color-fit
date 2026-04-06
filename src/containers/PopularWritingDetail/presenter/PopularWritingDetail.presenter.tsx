@@ -67,18 +67,18 @@ const PopularWritingDetailPresenter: FC<PopularWritingDetailPresenterProps> = ({
           />
         </div>
         <div className={cx("writing-footer")}>
-          <div className={cx("likes")}>
-            <Heart size={15} className={cx("heart-icon")} />
-            <p className={cx("like-count")}>{commarize(like_count)}</p>
-          </div>
           <div className={cx("writing-actions")}>
+            <div className={cx("likes")}>
+              <Heart size={15} className={cx("heart-icon")} />
+              <p className={cx("like-count")}>{commarize(like_count)}</p>
+            </div>
             <div className={cx("comment-count-section")}>
               <MessageCircle size={15} className={cx("comment-icon")} />
               <p className={cx("comment-count")}>{commarize(comment_count)}</p>
             </div>
-            <div className={cx("share")}>
-              <Share2 size={15} className={cx("share-icon")} />
-            </div>
+          </div>
+          <div className={cx("share")}>
+            <Share2 size={15} className={cx("share-icon")} />
           </div>
         </div>
       </div>
