@@ -9,8 +9,14 @@ interface CommentsContainerProps {
 }
 
 const CommentsContainer: FC<CommentsContainerProps> = ({ id }) => {
-  const { onSubmitComment, onChangeComment, content, comments, userProfile } =
-    useComments(id);
+  const {
+    onSubmitComment,
+    onChangeComment,
+    content,
+    comments,
+    userProfile,
+    loading,
+  } = useComments(id);
 
   return (
     <CommentsPresenter
@@ -19,6 +25,7 @@ const CommentsContainer: FC<CommentsContainerProps> = ({ id }) => {
       content={content}
       comments={comments}
       userProfile={userProfile}
+      loading={loading}
     />
   );
 };

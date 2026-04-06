@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { type FC } from "react";
 import "./globals.css";
 import AlertModalContainer from "@/containers/Modals/AlertModal/AlertModal.container";
+import ConfirmModalContainer from "@/containers/Modals/ConfirmModal/ConfirmModal.container";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +16,7 @@ const RootLayout: FC<{
     <html lang="ko" suppressHydrationWarning>
       <body>
         {children}
-        <AlertModalContainer />
+        <ConfirmModalContainer />
       </body>
     </html>
   );

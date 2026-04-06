@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import { Send, ThumbsUp } from "lucide-react";
 import { formatTimeAgo } from "@/utils";
 import Image from "next/image";
+import { MoonLoader } from "react-spinners";
 
 const cx = classNames.bind(styles);
 
@@ -23,6 +24,7 @@ interface ICommentsPresenterProps {
     nickname: string;
     avatar_url: string;
   } | null;
+  loading: boolean;
 }
 
 const CommentsPresenter: FC<ICommentsPresenterProps> = ({
@@ -31,6 +33,7 @@ const CommentsPresenter: FC<ICommentsPresenterProps> = ({
   content,
   comments,
   userProfile,
+  loading,
 }) => {
   return (
     <div className={cx("comments-section")}>
@@ -57,8 +60,16 @@ const CommentsPresenter: FC<ICommentsPresenterProps> = ({
               value={content}
               onChange={(e) => onChangeComment(e.target.value)}
             />
-            <button type="submit" className={cx("comments-submit-button")}>
-              <Send size={15} className={cx("send-icon")} />
+            <button
+              type="submit"
+              className={cx("comments-submit-button")}
+              disabled={loading}
+            >
+              {loading ? (
+                <MoonLoader size={11} color="#ffffff" />
+              ) : (
+                <Send size={15} className={cx("send-icon")} />
+              )}
             </button>
           </form>
         </div>

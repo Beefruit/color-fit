@@ -8,6 +8,7 @@ export const getPopularWritingDetail = async (id: string) => {
     });
 
     const data = await response.json();
+
     return data;
   } catch {
     console.error("Failed to fetch popular writing detail");

@@ -1,17 +1,50 @@
 import { type FC } from "react";
 import styles from "./Community.module.css";
 import classNames from "classnames/bind";
-import { ArrowLeft, Image, Plus } from "lucide-react";
+import { ArrowLeft, Image, Plus, X } from "lucide-react";
 
 const cx = classNames.bind(styles);
 
-const CommunityPresenter: FC = () => {
+interface CommunityPresenterProps {
+  CATEGORY_OPTIONS: {
+    value: string;
+    label: string;
+  }[];
+  selectedCategory: string;
+  onSelectCategory: (category: string) => void;
+  onSelectTag: (tag: string) => void;
+  onRemoveTag: (tag: string) => void;
+  selectedTagList: string[];
+  onClickBack: () => void;
+  tagValue: string;
+  onChangeTagValue: (value: string) => void;
+  onClickAddTag: () => void;
+}
+
+const CommunityPresenter: FC<CommunityPresenterProps> = ({
+  CATEGORY_OPTIONS,
+  selectedCategory,
+  onSelectCategory,
+  onSelectTag,
+  onRemoveTag,
+  selectedTagList,
+  onClickBack,
+  tagValue,
+  onChangeTagValue,
+  onClickAddTag,
+}) => {
   return (
     <div className={cx("community")}>
       <div className={cx("community-header")}>
         <div className={cx("left")}>
           <div className={cx("community-header-icon")}>
-            <ArrowLeft size={20} className={cx("arrow-icon")} />
+            <button
+              type="button"
+              className={cx("back-button")}
+              onClick={onClickBack}
+            >
+              <ArrowLeft size={20} className={cx("arrow-icon")} />
+            </button>
             <h2 className={cx("community-subtitle")}>돌아가기</h2>
           </div>
           <h2 className={cx("community-title")}>새 글 작성</h2>
@@ -27,29 +60,28 @@ const CommunityPresenter: FC = () => {
       </div>
       <div className={cx("community-content")}>
         <div className={cx("category-container")}>
-          <h2 className={cx("category-label")}>
+          <h2 className={cx("label")}>
             카테고리<span className={cx("essential")}>*</span>
           </h2>
           <div className={cx("category-options")}>
-            <button type="button" className={cx("category-option")}>
-              질문
-            </button>
-            <button type="button" className={cx("category-option")}>
-              팁&노하우
-            </button>
-            <button type="button" className={cx("category-option")}>
-              FOTD
-            </button>
-            <button type="button" className={cx("category-option")}>
-              제품리뷰
-            </button>
-            <button type="button" className={cx("category-option")}>
-              자유
-            </button>
+            {CATEGORY_OPTIONS.map((category) => (
+              <button
+                key={category.value}
+                type="button"
+                className={cx(
+                  "category-option",
+                  selectedCategory === category.value &&
+                    `category-option--${category.value}`,
+                )}
+                onClick={() => onSelectCategory(category.value)}
+              >
+                {category.label}
+              </button>
+            ))}
           </div>
         </div>
         <div className={cx("title-container")}>
-          <h2 className={cx("title-label")}>
+          <h2 className={cx("label")}>
             제목
             <span className={cx("essential")}>*</span>
           </h2>
@@ -60,7 +92,7 @@ const CommunityPresenter: FC = () => {
           />
         </div>
         <div className={cx("content-container")}>
-          <h2 className={cx("content-label")}>
+          <h2 className={cx("label")}>
             내용
             <span className={cx("essential")}>*</span>
           </h2>
@@ -74,7 +106,7 @@ const CommunityPresenter: FC = () => {
           />
         </div>
         <div className={cx("image-upload-container")}>
-          <h2 className={cx("image-upload-label")}>이미지 첨부</h2>
+          <h2 className={cx("label")}>이미지 첨부</h2>
           <div className={cx("image-upload-section")}>
             <input
               type="file"
@@ -93,43 +125,95 @@ const CommunityPresenter: FC = () => {
           </div>
         </div>
         <div className={cx("tag-container")}>
-          <h2 className={cx("tag-label")}>태그</h2>
+          <h2 className={cx("label")}>태그</h2>
           <div className={cx("tag-form")}>
             <input
               type="text"
               className={cx("tag-input")}
+              value={tagValue}
+              onChange={(e) => onChangeTagValue(e.target.value)}
               placeholder="태그를 입력하세요. (예: #겨울쿨톤, #메이크업)"
             />
-            <button type="button" className={cx("add-tag-button")}>
+            <button
+              type="button"
+              className={cx("add-tag-button")}
+              onClick={onClickAddTag}
+            >
               <Plus size={20} className={cx("add-icon")} />
             </button>
           </div>
+          <div className={cx("tag-list")}>
+            {selectedTagList.map((tag) => (
+              <div key={tag} className={cx("tag-item")}>
+                <span>#{tag}</span>
+                <button
+                  type="button"
+                  className={cx("remove-tag-button")}
+                  onClick={() => onRemoveTag(tag)}
+                >
+                  <X size={12} className={cx("remove-icon")} />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
         <div className={cx("personal-color-tag-container")}>
-          <h2 className={cx("personal-color-tag-label")}>퍼스널 컬러 태그</h2>
+          <h2 className={cx("label")}>퍼스널 컬러 태그</h2>
           <div className={cx("personal-color-tag-options")}>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("봄 라이트")}
+            >
               봄 라이트
             </button>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("봄 브라이트")}
+            >
               봄 브라이트
             </button>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("여름 라이트")}
+            >
               여름 라이트
             </button>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("여름 뮤트")}
+            >
               여름 뮤트
             </button>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("가을 뮤트")}
+            >
               가을 뮤트
             </button>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("가을 딥")}
+            >
               가을 딥
             </button>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("겨울 브라이트")}
+            >
               겨울 브라이트
             </button>
-            <button type="button" className={cx("personal-color-tag-option")}>
+            <button
+              type="button"
+              className={cx("personal-color-tag-option")}
+              onClick={() => onSelectTag("겨울 딥")}
+            >
               겨울 딥
             </button>
           </div>

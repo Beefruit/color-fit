@@ -22,6 +22,15 @@
   gap: 0.8rem;
 }
 
+.back-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+}
+
 .community-subtitle {
   color: #6b6b8a;
   font-size: 1.6rem;
@@ -73,7 +82,7 @@
   padding: 2rem;
 }
 
-.category-label {
+.community-content {
   font-size: 1.6rem;
   font-weight: 500;
 }
@@ -98,16 +107,51 @@
   font-weight: 500;
 }
 
+.category-option:hover {
+  border-color: #9694ff;
+  background-color: rgba(232, 233, 243, 0.3);
+}
+
+.category-option--question {
+  background: linear-gradient(90deg, #51a2ff, #155dfc);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px rgba(124, 131, 255, 0.25);
+}
+
+.category-option--tip {
+  background: linear-gradient(90deg, #c27aff, #9810fa);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px rgba(255, 180, 217, 0.25);
+}
+
+.category-option--fotd {
+  background: linear-gradient(90deg, #fb64b6, #e60076);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px rgba(168, 197, 229, 0.25);
+}
+
+.category-option--review {
+  background: linear-gradient(90deg, #05df72, #00a63e);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px rgba(255, 211, 102, 0.25);
+}
+
+.category-option--free {
+  background: linear-gradient(90deg, #ff8904, #f54900);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px rgba(150, 148, 255, 0.25);
+}
+
 .title-container {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   padding: 2rem;
-}
-
-.title-label {
-  font-size: 1.6rem;
-  font-weight: 500;
 }
 
 .title-input {
@@ -129,11 +173,6 @@
   padding: 2rem;
 }
 
-.content-label {
-  font-size: 1.6rem;
-  font-weight: 500;
-}
-
 .content-textarea {
   padding: 1.6rem 2.4rem;
   width: 100%;
@@ -153,11 +192,6 @@
   flex-direction: column;
   gap: 1.2rem;
   padding: 2rem;
-}
-
-.image-upload-label {
-  font-size: 1.6rem;
-  font-weight: 500;
 }
 
 .image-upload-section {
@@ -193,11 +227,7 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
-}
-
-.tag-label {
-  font-size: 1.6rem;
-  font-weight: 500;
+  gap: 1.2rem;
 }
 
 .tag-form {
@@ -233,6 +263,37 @@
   color: #fff;
   font-size: 1.6rem;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.tag-list {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.tag-item {
+  background-color: rgba(150, 148, 255, 0.1);
+  color: #9694ff;
+  border: 1px solid rgba(150, 148, 255, 0.2);
+  padding: 1rem 1.6rem;
+  border-radius: 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.remove-tag-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  color: #9694ff;
+  cursor: pointer;
 }
 
 .personal-color-tag-container {
@@ -240,11 +301,6 @@
   flex-direction: column;
   gap: 1.2rem;
   padding: 2rem;
-}
-
-.personal-color-tag-label {
-  font-size: 1.6rem;
-  font-weight: 500;
 }
 
 .personal-color-tag-options {
@@ -259,6 +315,12 @@
   background-color: transparent;
   font-size: 1.6rem;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.personal-color-tag-option:hover {
+  border-color: #9694ff;
+  background-color: rgba(150, 148, 255, 0.1);
 }
 
 .writing-guide {

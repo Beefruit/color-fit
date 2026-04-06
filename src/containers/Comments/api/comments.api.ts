@@ -5,7 +5,6 @@ export const postComment = async ({
   postId: string;
   content: string;
 }) => {
-  console.log("댓글 작성 API 호출", { postId, content }); // 디버깅 로그
   try {
     const response = await fetch(`/api/post/${postId}/comment`, {
       method: "POST",
@@ -15,11 +14,13 @@ export const postComment = async ({
       body: JSON.stringify({ content }),
     });
     if (!response.ok) {
-      throw new Error("Failed to post comment");
+      throw new Error("Failed to post comment", {
+        cause: await response.text(),
+      });
     }
     return await response.json();
   } catch (error) {
-    console.error("Failed to post comment", error);
+    throw error;
   }
 };
 

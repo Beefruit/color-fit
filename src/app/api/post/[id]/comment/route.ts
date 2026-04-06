@@ -56,7 +56,6 @@ export async function POST(
     .single();
 
   if (profileError) {
-    console.error("프로필 조회 실패:", profileError);
     return NextResponse.json(
       { error: "프로필 조회에 실패했습니다." },
       { status: 500 },

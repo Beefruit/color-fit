@@ -13,7 +13,9 @@ interface PopularWritingDetailPresenterProps {
   image_urls: string[];
   like_count: number;
   comment_count: number;
-  updated_at: string;
+  created_at: string;
+  nickname: string;
+  avatar_url: string;
 }
 
 const PopularWritingDetailPresenter: FC<PopularWritingDetailPresenterProps> = ({
@@ -22,19 +24,29 @@ const PopularWritingDetailPresenter: FC<PopularWritingDetailPresenterProps> = ({
   image_urls,
   like_count,
   comment_count,
-  updated_at,
+  created_at,
+  nickname,
+  avatar_url,
 }) => {
   return (
     <div className={cx("content")}>
       <div className={cx("user-info")}>
-        <div className={cx("user-image")}></div>
+        <div className={cx("user-image")}>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/avatars/${avatar_url}`}
+            alt={`${nickname}의 아바타`}
+            width={50}
+            height={50}
+            className={cx("avatar")}
+          />
+        </div>
         <div className={cx("user")}>
           <div className={cx("user-details")}>
-            <p className={cx("user-name")}>닉네임</p>
+            <p className={cx("user-name")}>{nickname}</p>
             <div className={cx("personal-color-tag")}>겨울 쿨 브라이트</div>
           </div>
           <div className={cx("count-info")}>
-            <p className={cx("time-posted")}>{formatTimeAgo(updated_at)}</p>
+            <p className={cx("time-posted")}>{formatTimeAgo(created_at)}</p>
             <p className={cx("view-count")}>조회 {commarize(1240)}</p>
           </div>
         </div>

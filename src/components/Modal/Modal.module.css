@@ -40,9 +40,16 @@
 }
 
 .modal-content {
-  background-color: #fcf7fa;
-  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(150, 148, 255, 0.2);
+  width: 39.8rem;
   overflow-y: auto;
   overflow-x: hidden;
-  border-radius: 2rem;
+  border-radius: 3.2rem;
+}
+
+@media screen and (max-width: 400px) {
+  .modal-content {
+    width: 100%;
+  }
 }

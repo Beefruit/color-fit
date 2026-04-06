@@ -10,18 +10,23 @@ const cx = classNames.bind(styles);
 interface IModalprops {
   children: React.ReactNode;
   onCloseBtn: () => void;
+  isOpen: boolean;
 }
 
-const ModalComponent: FC<IModalprops> = ({ children, onCloseBtn }) => {
+export const ModalComponent: FC<IModalprops> = ({
+  children,
+  onCloseBtn,
+  isOpen,
+}) => {
   return (
-    <div className={cx("modal")}>
-      <button type="button" className={cx("close-btn")} onClick={onCloseBtn}>
-        <span className={cx("close-icon")} />
-        <span className={cx("close-icon")} />
-      </button>
-      <div className={cx("modal-content")}>{children}</div>
-    </div>
+    isOpen && (
+      <div className={cx("modal")}>
+        <button type="button" className={cx("close-btn")} onClick={onCloseBtn}>
+          <span className={cx("close-icon")} />
+          <span className={cx("close-icon")} />
+        </button>
+        <div className={cx("modal-content")}>{children}</div>
+      </div>
+    )
   );
 };
-
-export default ModalComponent;
