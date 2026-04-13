@@ -2,12 +2,14 @@ import { type FC } from "react";
 import styles from "./PopularWritingDetail.module.css";
 import classNames from "classnames/bind";
 import Image from "next/image";
-import { Heart, MessageCircle, Share2 } from "lucide-react";
+import { MessageCircle, Share2 } from "lucide-react";
 import { formatTimeAgo, commarize } from "@/utils";
+import LikeButtonPresenter from "./LikeButton.presenter";
 
 const cx = classNames.bind(styles);
 
 interface PopularWritingDetailPresenterProps {
+  id: string;
   title: string;
   content: string;
   image_urls: string[];
@@ -19,6 +21,7 @@ interface PopularWritingDetailPresenterProps {
 }
 
 const PopularWritingDetailPresenter: FC<PopularWritingDetailPresenterProps> = ({
+  id,
   title,
   content,
   image_urls,
@@ -68,10 +71,7 @@ const PopularWritingDetailPresenter: FC<PopularWritingDetailPresenterProps> = ({
         </div>
         <div className={cx("writing-footer")}>
           <div className={cx("writing-actions")}>
-            <div className={cx("likes")}>
-              <Heart size={15} className={cx("heart-icon")} />
-              <p className={cx("like-count")}>{commarize(like_count)}</p>
-            </div>
+            <LikeButtonPresenter id={id} like_count={like_count} />
             <div className={cx("comment-count-section")}>
               <MessageCircle size={15} className={cx("comment-icon")} />
               <p className={cx("comment-count")}>{commarize(comment_count)}</p>

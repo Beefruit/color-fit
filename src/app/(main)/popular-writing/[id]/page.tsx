@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import { ArrowLeft } from "lucide-react";
 import PopularWritingDetailContainer from "@/containers/PopularWritingDetail/PopularWritingDetail.container";
 import CommentsContainer from "@/containers/Comments/Comments.container";
+import Link from "next/link";
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +19,9 @@ const PopularWritingPage: FC<PopularWritingPageProps> = async ({ params }) => {
     <div className={cx("popular-writing-page")}>
       <div className={cx("header")}>
         <div className={cx("header-icon")}>
-          <ArrowLeft size={20} className={cx("arrow-icon")} />
+          <Link href="/popular-writing/list">
+            <ArrowLeft size={20} className={cx("arrow-icon")} />
+          </Link>
         </div>
         <h1 className={cx("title")}>인기글 상세</h1>
       </div>

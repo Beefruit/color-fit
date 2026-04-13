@@ -34,6 +34,7 @@ export const getComments = async (postId: string) => {
     });
 
     if (!response.ok) {
+      console.log("Failed to fetch comments", await response.text());
       throw new Error("Failed to fetch comments");
     }
 

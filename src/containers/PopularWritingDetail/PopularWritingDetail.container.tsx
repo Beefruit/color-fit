@@ -11,7 +11,7 @@ const PopularWritingDetailContainer: FC<
 > = async ({ id }) => {
   const { post } = await getPopularWritingDetail(id); // 동적으로 ID를 받아옴
 
-  return <PopularWritingDetailPresenter {...post} />;
+  return <PopularWritingDetailPresenter {...post} id={id} />;
 };
 
 export default PopularWritingDetailContainer;
