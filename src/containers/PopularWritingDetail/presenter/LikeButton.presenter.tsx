@@ -14,8 +14,11 @@ interface LikeButtonPresenterProps {
   id: string;
 }
 
-const LikeButtonPresenter: FC<LikeButtonPresenterProps> = ({ like_count }) => {
-  const { isLiked, onClickLike } = useLike();
+const LikeButtonPresenter: FC<LikeButtonPresenterProps> = ({
+  like_count,
+  id,
+}) => {
+  const { isLiked, likeCount, onClickLike } = useLike(id, like_count);
 
   return (
     <div
@@ -27,7 +30,7 @@ const LikeButtonPresenter: FC<LikeButtonPresenterProps> = ({ like_count }) => {
         fill={isLiked ? "#ff6b6b" : "none"}
         className={cx("heart-icon")}
       />
-      <p className={cx("like-count")}>{commarize(like_count)}</p>
+      <p className={cx("like-count")}>{commarize(likeCount)}</p>
     </div>
   );
 };
