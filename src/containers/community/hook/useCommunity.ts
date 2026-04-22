@@ -15,6 +15,10 @@ export const useCommunity = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTagList, setSelectedTagList] = useState<string[]>([]);
   const [tagValue, setTagValue] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [imageList, setImageList] = useState<File[]>([]);
+  const [previewImageList, setPreviewImageList] = useState<string[]>([]);
 
   const onClickBack = () => {
     router.back();
@@ -46,6 +50,36 @@ export const useCommunity = () => {
     setTagValue("");
   };
 
+  const onChangeTitle = (value: string) => {
+    setTitle(value);
+  };
+
+  const onChangeContent = (value: string) => {
+    setContent(value);
+  };
+
+  const onChangeImageList = (files: File[]) => {
+    if (files.length === 0) return;
+
+    if (files.length + imageList.length > 5) {
+      alert("이미지는 최대 5개까지 업로드할 수 있습니다.");
+      return;
+    }
+
+    const newImageList = Array.from(files);
+    const newPreviewImageList = newImageList.map((file) =>
+      URL.createObjectURL(file),
+    );
+
+    setPreviewImageList([...previewImageList, ...newPreviewImageList]);
+    setImageList([...imageList, ...newImageList]);
+  };
+
+  const onRemoveImage = (index: number) => {
+    setImageList(imageList.filter((_, i) => i !== index));
+    setPreviewImageList(previewImageList.filter((_, i) => i !== index));
+  };
+
   return {
     CATEGORY_OPTIONS,
     selectedCategory,
@@ -57,5 +91,13 @@ export const useCommunity = () => {
     tagValue,
     onChangeTagValue,
     onClickAddTag,
+    title,
+    onChangeTitle,
+    content,
+    onChangeContent,
+    imageList,
+    previewImageList,
+    onChangeImageList,
+    onRemoveImage,
   };
 };

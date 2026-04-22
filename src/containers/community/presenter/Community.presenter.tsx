@@ -1,7 +1,10 @@
+"use client";
+
 import { type FC } from "react";
 import styles from "./Community.module.css";
 import classNames from "classnames/bind";
-import { ArrowLeft, Image, Plus, X } from "lucide-react";
+import { ArrowLeft, Image as ImageIcon, Plus, X } from "lucide-react";
+import Image from "next/image";
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +22,14 @@ interface CommunityPresenterProps {
   tagValue: string;
   onChangeTagValue: (value: string) => void;
   onClickAddTag: () => void;
+  title: string;
+  onChangeTitle: (value: string) => void;
+  content: string;
+  onChangeContent: (value: string) => void;
+  imageList: File[];
+  onChangeImageList: (files: File[]) => void;
+  previewImageList: string[];
+  onRemoveImage: (index: number) => void;
 }
 
 const CommunityPresenter: FC<CommunityPresenterProps> = ({
@@ -32,6 +43,14 @@ const CommunityPresenter: FC<CommunityPresenterProps> = ({
   tagValue,
   onChangeTagValue,
   onClickAddTag,
+  title,
+  onChangeTitle,
+  content,
+  onChangeContent,
+  imageList,
+  onChangeImageList,
+  previewImageList,
+  onRemoveImage,
 }) => {
   return (
     <div className={cx("community")}>
@@ -89,6 +108,8 @@ const CommunityPresenter: FC<CommunityPresenterProps> = ({
             type="text"
             className={cx("title-input")}
             placeholder="글 제목을 입력해주세요."
+            value={title}
+            onChange={(e) => onChangeTitle(e.target.value)}
           />
         </div>
         <div className={cx("content-container")}>
@@ -103,25 +124,48 @@ const CommunityPresenter: FC<CommunityPresenterProps> = ({
 • 퍼스널 컬러와 관련된 내용을 자유롭게 공유해주세요
 • 서로 존중하는 커뮤니티 문화를 만들어요
 • 제품 리뷰는 솔직하고 상세하게 작성해주세요`}
+            value={content}
+            onChange={(e) => onChangeContent(e.target.value)}
           />
         </div>
         <div className={cx("image-upload-container")}>
           <h2 className={cx("label")}>이미지 첨부</h2>
           <div className={cx("image-upload-section")}>
-            <input
-              type="file"
-              id="image-upload"
-              className={cx("image-upload-input")}
-              accept="image/*"
-              multiple
-            />
-            <label
-              htmlFor="image-upload"
-              className={cx("image-upload-instructions")}
-            >
-              <Image size={24} className={cx("image-icon")} />
+            <label className={cx("image-upload-instructions")}>
+              <ImageIcon size={24} className={cx("image-icon")} />
               이미지를 첨부하려면 클릭하거나 드래그하세요.
+              <input
+                type="file"
+                className={cx("image-upload-input")}
+                accept="image/*"
+                multiple
+                onChange={(e) => {
+                  if (e.target.files) {
+                    onChangeImageList(Array.from(e.target.files));
+                  }
+                }}
+              />
             </label>
+          </div>
+          <div className={cx("image-preview-container")}>
+            {previewImageList.map((previewUrl, index) => (
+              <div key={index} className={cx("image-preview")}>
+                <button
+                  type="button"
+                  className={cx("remove-image-button")}
+                  onClick={() => onRemoveImage(index)}
+                >
+                  <X size={24} className={cx("remove-icon")} />
+                </button>
+                <Image
+                  src={previewUrl}
+                  alt="Preview"
+                  width={100}
+                  height={100}
+                  className={cx("image-preview-img")}
+                />
+              </div>
+            ))}
           </div>
         </div>
         <div className={cx("tag-container")}>

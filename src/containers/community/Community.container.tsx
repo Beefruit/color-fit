@@ -16,6 +16,14 @@ const CommunityContainer: FC = () => {
     tagValue,
     onChangeTagValue,
     onClickAddTag,
+    title,
+    onChangeTitle,
+    content,
+    onChangeContent,
+    imageList,
+    onChangeImageList,
+    previewImageList,
+    onRemoveImage,
   } = useCommunity();
 
   return (
@@ -30,6 +38,14 @@ const CommunityContainer: FC = () => {
       tagValue={tagValue}
       onChangeTagValue={onChangeTagValue}
       onClickAddTag={onClickAddTag}
+      title={title}
+      onChangeTitle={onChangeTitle}
+      content={content}
+      onChangeContent={onChangeContent}
+      imageList={imageList}
+      onChangeImageList={onChangeImageList}
+      previewImageList={previewImageList}
+      onRemoveImage={onRemoveImage}
     />
   );
 };
